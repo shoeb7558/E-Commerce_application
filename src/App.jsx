@@ -48,8 +48,8 @@ function App() {
     ]
   return (
     <div>
-      <Header_Element />
-      <Cards datatransfer={productsArr}/>
+      <Header_Element datatransfer={productsArr}/>
+     
     </div>
   )
 }
