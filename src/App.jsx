@@ -1,65 +1,70 @@
-
-
-import React from 'react';
+// App.js
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header_Element from './components/Header_Element';
 import About from './About/About';
+import Home from './Home/Home';
+import Cards from './Cards/Cards';
 
 function App() {
   const productsArr = [
+    {
+      title: 'Colors',
+      price: 100,
+      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+    },
+    {
+      title: 'Black and white Colors',
+      price: 50,
+      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+    },
+    {
+      title: 'Yellow and Black Colors',
+      price: 70,
+      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+    },
+    {
+      title: 'Blue Color',
+      price: 100,
+      imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+    },
+  ];
 
-    {
-    
-    title: 'Colors',
-    
-    price: 100,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-    
-    },
-    
-    {
-    
-    title: 'Black and white Colors',
-    
-    price: 50,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-    
-    },
-    
-    {
-    
-    title: 'Yellow and Black Colors',
-    
-    price: 70,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-    
-    },
-    
-    {
-    
-    title: 'Blue Color',
-    
-    price: 100,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
-    
-    }
-    
-    ]
+  const [isCartOpen, setCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+  const [itemsincart, setitemsincart] = useState(0);
+
+  const openCart = () => {
+    setCartOpen(true);
+  };
+
+  const closeCart = () => {
+    setCartOpen(false);
+  };
+
+  const addToCart = (item) => {
+    setCartItems((prevItems) => [...prevItems, item]);
+    setitemsincart(itemsincart + 1);
+  };
 
   return (
     <Router>
       <div>
+        <Header_Element
+          datatransfer={productsArr}
+          addToCart={addToCart}
+          itemsincart={itemsincart}
+          openCart={openCart}
+          closeCart={closeCart}
+          isCartOpen={isCartOpen}
+          cartItems={cartItems}
+        />
         <Routes>
-          <Route
-            path="/"
-            element={<Header_Element datatransfer={productsArr} />}
-          />
           <Route path="/about" element={<About />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Cards datatransfer={productsArr} addToCart={addToCart} /> }/>
         </Routes>
+        {/* <Cards datatransfer={productsArr} addToCart={addToCart} /> */}
       </div>
     </Router>
   );

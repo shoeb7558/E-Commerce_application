@@ -2,9 +2,11 @@ import React from 'react'
 import myimage from './linkedin.jpg'
 import './AboutModule.css'
 
+
 function About() {
   return (
     <div>
+      
       <h1 className='h1'>ABOUT ME</h1>
       <div className='innerdiv'>
       <img className='aboutimg' src={myimage}></img>
