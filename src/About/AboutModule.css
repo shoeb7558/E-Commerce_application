@@ -1,0 +1,18 @@
+.h1{
+    padding-left: 60px;
+}
+.aboutimg{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+
+}
+.innerdiv{
+    display: flex;
+    padding: 50px;
+    gap: 50px;
+    font-size: 20px;
+}
+.para1{
+    width: 500px;
+}
