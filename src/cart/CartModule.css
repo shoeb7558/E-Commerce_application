@@ -1,0 +1,29 @@
+.cartdiv{
+    width: 450px;
+    height: 300px;
+    border-radius: 20px;
+    background-color: antiquewhite;
+   
+}
+.cart {
+    max-height: 400px; /* Set the maximum height for the cart */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .addtocartbutton{
+    font-size: 15px;
+    background-color: #D2B4DE;
+    border-radius: 5px;
+    border-color: #D2B4DE;
+  }
+  /* CartModule.css */
+.CartItem {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  .closecart{
+    padding: 5px;
+    background-color: #D2B4DE;
+    border-radius: 5px;
+  }
