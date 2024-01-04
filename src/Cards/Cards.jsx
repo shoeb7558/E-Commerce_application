@@ -5,6 +5,7 @@ function Cards({ datatransfer, addToCart }) {
   const addtocartbutton = (index) => {
     const selectedItem = datatransfer[index];
     console.log(selectedItem);
+    
     addToCart(selectedItem);
   };
 

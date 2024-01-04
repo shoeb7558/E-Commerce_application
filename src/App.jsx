@@ -1,6 +1,9 @@
-import React from 'react'
-import Header_Element from './components/Header_Element'
-import Cards from './Cards/Cards'
+
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header_Element from './components/Header_Element';
+import About from './About/About';
 
 function App() {
   const productsArr = [
@@ -46,12 +49,20 @@ function App() {
     }
     
     ]
+
   return (
-    <div>
-      <Header_Element datatransfer={productsArr}/>
-     
-    </div>
-  )
+    <Router>
+      <div>
+        <Routes>
+          <Route
+            path="/"
+            element={<Header_Element datatransfer={productsArr} />}
+          />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
