@@ -1,0 +1,13 @@
+.movieslist{
+    width: 400px;
+    height: 30px;
+    background-color: aquamarine;
+    margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px ;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    list-style-type: none;      
+
+}
