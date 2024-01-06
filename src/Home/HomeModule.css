@@ -1,5 +1,5 @@
 .movieslist{
-    width: 400px;
+    width: 500px;
     height: 30px;
     background-color: aquamarine;
     margin: 10px;
@@ -8,6 +8,10 @@
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 10px;
-    list-style-type: none;      
-
+    list-style-type: none;  
+    justify-content: space-between;  
+    display: flex;}
+.deletebutton{
+    background-color: blueviolet;
+    border-radius:10px ;
 }

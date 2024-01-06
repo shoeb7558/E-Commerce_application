@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './AddMoviesModule.css'
 
-const AddMovies = () => {
+const AddMovies = (props) => {
   const [title, setTitle] = useState('');
   const [openingText, setOpeningText] = useState('');
   const [releaseDate, setReleaseDate] = useState('');
@@ -9,11 +9,18 @@ const AddMovies = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Perform actions with the form data, e.g., send it to an API
-    console.log('Submitted:', { title, openingText, releaseDate });
+    const newData = {
+         title: title, 
+         openingText: openingText, 
+         releaseDate: releaseDate 
+    }
+    // console.log('Submitted:', newData );
+    props.onsubmit(newData);
 
     setTitle('')
     setOpeningText('')
     setReleaseDate('')
+
   };
 
   return (
