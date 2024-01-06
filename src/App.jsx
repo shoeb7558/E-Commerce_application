@@ -8,6 +8,7 @@ import Cards from './Cards/Cards';
 import ContactUs from './ContactUS/ContactUs';
 import Products from './Products/Products';
 import ProductsDetail from './Products/ProductsDetail';
+import SignInForm from './Auth/SignIn';
 
 function App() {
   const productsArr = [
@@ -61,7 +62,9 @@ function App() {
           closeCart={closeCart}
           isCartOpen={isCartOpen}
           cartItems={cartItems}
+          
         />
+        
         <Routes>
           <Route path="/about" element={<About />} />
           <Route path="/home" element={<Home />} />
@@ -69,6 +72,7 @@ function App() {
           <Route path="/ContactUS" element={<ContactUs/>}/>
           <Route path="/Products" element={<Products productsArr={productsArr} />} />
           <Route path="/Products/:productId" element={<ProductsDetail productsArr={productsArr} />} />
+          <Route path="/SignIn" element={<SignInForm/>}/>
         </Routes>
         {/* <Cards datatransfer={productsArr} addToCart={addToCart} /> */}
       </div>
@@ -77,3 +81,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
