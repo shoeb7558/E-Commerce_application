@@ -4,6 +4,7 @@ import './Header_ElementModule.css';
 import Cart from '../cart/Cart';
 import { Link } from 'react-router-dom';
 
+
 function Header_Element({ itemsincart, openCart, closeCart, isCartOpen,cartItems  }) {
   return (
     <>
@@ -17,6 +18,9 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen,cartItems
 
         <Link to='/about' className='labels'>
           About
+        </Link>
+        <Link to='/ContactUs' className='labels'>
+          Contact-US
         </Link>
 
         <button className='cartbutton' onClick={openCart}>

@@ -5,6 +5,7 @@ import Header_Element from './components/Header_Element';
 import About from './About/About';
 import Home from './Home/Home';
 import Cards from './Cards/Cards';
+import ContactUs from './ContactUS/ContactUs';
 
 function App() {
   const productsArr = [
@@ -63,6 +64,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Cards datatransfer={productsArr} addToCart={addToCart} /> }/>
+          <Route path="/ContactUS" element={<ContactUs/>}/>
         </Routes>
         {/* <Cards datatransfer={productsArr} addToCart={addToCart} /> */}
       </div>
