@@ -5,10 +5,12 @@ import Cart from '../cart/Cart';
 import { Link } from 'react-router-dom';
 
 
+
 function Header_Element({ itemsincart, openCart, closeCart, isCartOpen,cartItems  }) {
   return (
     <>
       <div className='headerdiv'>
+
         <Link to='/home' className='labels'>
           Home
         </Link>
@@ -25,6 +27,10 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen,cartItems
         <Link to='/Products' className='labels'>
         Products
         </Link>
+        <Link to='/SignIn' className='labels'>
+        SignIn
+        </Link>
+        
 
         <button className='cartbutton' onClick={openCart}>
           Open Cart
