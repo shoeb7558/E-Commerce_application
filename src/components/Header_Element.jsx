@@ -22,11 +22,14 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen,cartItems
         <Link to='/ContactUs' className='labels'>
           Contact-US
         </Link>
+        <Link to='/Products' className='labels'>
+        Products
+        </Link>
 
         <button className='cartbutton' onClick={openCart}>
           Open Cart
         </button>
-        <h2>{itemsincart}</h2>
+        <h2 className='itemh2'>{itemsincart}</h2>
         <Cart isOpen={isCartOpen} onClose={closeCart} cartItems={cartItems} />
       </div>
       <div className='headerdiv2'>
