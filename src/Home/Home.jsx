@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './HomeModule.css';
+import AddMovies from './AddMovies';
 
 function Home() {
   const [data, setdata] = useState([]);
@@ -13,7 +14,7 @@ function Home() {
       try {
         
         
-        const response = await fetch('https://swapi.dev/api/film/');
+        const response = await fetch('https://swapi.dev/api/films/');
         if(!response.ok){
           throw new Error('Somthing went wrong!')
         }
@@ -33,6 +34,7 @@ function Home() {
 
   return (
     <div>
+      <AddMovies />
       <h1>This is the home page</h1>
       {isLoading ? (
         <p>Loading...</p> // Show loader when data is being fetched
