@@ -10,7 +10,7 @@ import Products from './Products/Products';
 import ProductsDetail from './Products/ProductsDetail';
 import SignInForm from './Auth/SignIn';
 import LoginForm from './Auth/Login';
-import { AuthContextProvider } from './storage/AuthContext';
+import AuthContext, { AuthContextProvider } from './storage/AuthContext';
 import ChangePassword from './Auth/ChangePassword';
 
 

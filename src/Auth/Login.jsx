@@ -2,11 +2,13 @@
 import React, { useState, useContext } from 'react';
 import './LogInModule.css'
 import AuthContext from '../storage/AuthContext';
+import { useNavigate  } from 'react-router-dom';
 
 
 const LoginForm =() => {
   const [useremail, setEmail] = useState('');
   const [userpassword, setPassword] = useState('');
+  const Navigate = useNavigate ();
 
 
   const AuthCtx =  useContext(AuthContext)
@@ -39,6 +41,7 @@ const LoginForm =() => {
         }
     }).then((data)=>{
        AuthCtx.login(data.idToken)
+       Navigate('/');
   })
     .catch((error)=>{
         alert(error.errorMessage)

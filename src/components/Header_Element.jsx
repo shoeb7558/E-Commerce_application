@@ -2,13 +2,19 @@
 import React, { useContext } from 'react';
 import './Header_ElementModule.css';
 import Cart from '../cart/Cart';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../storage/AuthContext';
 
 function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItems }) {
   const AuthCtx = useContext(AuthContext);
+  const Navigate = useNavigate();
 
   const isLoggedIn = AuthCtx.isLoggedIn;
+
+  const logoutHandler = () =>{
+    AuthCtx.logout();
+    Navigate('/LogIn');
+  }
 
   return (
     <>
@@ -51,6 +57,11 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
           <Link to='/changePass' className='labels'>
           Change-Password
         </Link>
+        )}
+        {isLoggedIn && (
+          <button onClick={logoutHandler} className='cartbutton'>
+          Logout
+        </button>
         )}
 
         <button className='cartbutton' onClick={openCart}>

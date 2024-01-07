@@ -33,11 +33,19 @@ function ContactUs() {
 
       // Handle success, e.g., show a success message
       console.log('Form submitted successfully');
+      alert('Form submitted successfully')
     } catch (error) {
       // Handle errors, e.g., show an error message
       console.error('Error submitting form:', error.message);
     }
+    setFormData({
+      name: '',
+      email: '',
+      description: '',
+    });
+
   };
+
 
   return (
     <div>
