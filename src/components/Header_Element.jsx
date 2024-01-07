@@ -47,6 +47,12 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
           </>
         )}
 
+        {isLoggedIn && (
+          <Link to='/changePass' className='labels'>
+          Change-Password
+        </Link>
+        )}
+
         <button className='cartbutton' onClick={openCart}>
           Open Cart
         </button>
