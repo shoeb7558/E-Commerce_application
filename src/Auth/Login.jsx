@@ -1,10 +1,15 @@
 // LoginForm.js
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './LogInModule.css'
+import AuthContext from '../storage/AuthContext';
+
 
 const LoginForm =() => {
   const [useremail, setEmail] = useState('');
   const [userpassword, setPassword] = useState('');
+
+
+  const AuthCtx =  useContext(AuthContext)
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -22,9 +27,7 @@ const LoginForm =() => {
     }
     ).then((res) => {
         if(res.ok){
-            return res.json().then(()=>{
-                alert('Login Sucess')
-            });
+            return res.json()
             
         }else{
             return res.json().then(data => {
@@ -35,8 +38,7 @@ const LoginForm =() => {
             })
         }
     }).then((data)=>{
-       
-        console.log(data)
+       AuthCtx.login(data.idToken)
   })
     .catch((error)=>{
         alert(error.errorMessage)

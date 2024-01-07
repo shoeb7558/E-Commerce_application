@@ -1,22 +1,33 @@
 // Header_ElementModule.js
-// mport React, { useState } from 'react';i
+import React, { useContext } from 'react';
 import './Header_ElementModule.css';
 import Cart from '../cart/Cart';
 import { Link } from 'react-router-dom';
+import AuthContext from '../storage/AuthContext';
 
+function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItems }) {
+  const AuthCtx = useContext(AuthContext);
 
+  const isLoggedIn = AuthCtx.isLoggedIn;
 
-function Header_Element({ itemsincart, openCart, closeCart, isCartOpen,cartItems  }) {
   return (
     <>
       <div className='headerdiv'>
-
         <Link to='/home' className='labels'>
           Home
         </Link>
-        <Link to='/' className='labels'>
-          Store
-        </Link>
+
+        {isLoggedIn && (
+          <>
+            <Link to='/' className='labels'>
+              Store
+            </Link>
+
+            <Link to='/Products' className='labels'>
+              Products
+            </Link>
+          </>
+        )}
 
         <Link to='/about' className='labels'>
           About
@@ -24,16 +35,17 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen,cartItems
         <Link to='/ContactUs' className='labels'>
           Contact-US
         </Link>
-        <Link to='/Products' className='labels'>
-        Products
-        </Link>
-        <Link to='/SignIn' className='labels'>
-        SignIn
-        </Link>
-        <Link to='/LogIn' className='labels'>
-        Login
-        </Link>
-        
+
+        {!isLoggedIn && (
+          <>
+            <Link to='/SignIn' className='labels'>
+              SignIn
+            </Link>
+            <Link to='/LogIn' className='labels'>
+              Login
+            </Link>
+          </>
+        )}
 
         <button className='cartbutton' onClick={openCart}>
           Open Cart

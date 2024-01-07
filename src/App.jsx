@@ -10,6 +10,8 @@ import Products from './Products/Products';
 import ProductsDetail from './Products/ProductsDetail';
 import SignInForm from './Auth/SignIn';
 import LoginForm from './Auth/Login';
+import AuthContext, { AuthContextProvider } from './storage/AuthContext';
+
 
 function App() {
   const productsArr = [
@@ -53,6 +55,7 @@ function App() {
   };
 
   return (
+    <AuthContextProvider>
     <Router>
       <div>
         <Header_Element
@@ -79,6 +82,7 @@ function App() {
         {/* <Cards datatransfer={productsArr} addToCart={addToCart} /> */}
       </div>
     </Router>
+    </AuthContextProvider>
   );
 }
 
