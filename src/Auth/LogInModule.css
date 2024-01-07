@@ -1,4 +1,4 @@
-.signinForm{
+.LogInForm{
     background-color: #D2B4DE;
     width: 300px;
     height: 200px;
@@ -11,21 +11,21 @@
 
 }
 
-.signindiv{
+.LogIndiv{
     display: flex;
     justify-content: center;
     margin: 10px;
     
 }
 
-.signinput{
+.LoginInput{
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 20px ;
     width: 250px;
 }
 
-.siginbutton{
+.Loginbutton{
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 20px ;

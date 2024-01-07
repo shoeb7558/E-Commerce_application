@@ -9,6 +9,7 @@ import ContactUs from './ContactUS/ContactUs';
 import Products from './Products/Products';
 import ProductsDetail from './Products/ProductsDetail';
 import SignInForm from './Auth/SignIn';
+import LoginForm from './Auth/Login';
 
 function App() {
   const productsArr = [
@@ -73,6 +74,7 @@ function App() {
           <Route path="/Products" element={<Products productsArr={productsArr} />} />
           <Route path="/Products/:productId" element={<ProductsDetail productsArr={productsArr} />} />
           <Route path="/SignIn" element={<SignInForm/>}/>
+          <Route path="/LogIn" element={<LoginForm/>}/>
         </Routes>
         {/* <Cards datatransfer={productsArr} addToCart={addToCart} /> */}
       </div>

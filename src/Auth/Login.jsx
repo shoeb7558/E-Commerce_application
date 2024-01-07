@@ -1,24 +1,61 @@
 // LoginForm.js
 import React, { useState } from 'react';
+import './LogInModule.css'
 
-const LoginForm = ({ onLogin }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const LoginForm =() => {
+  const [useremail, setEmail] = useState('');
+  const [userpassword, setPassword] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Perform login logic (e.g., API call)
-    onLogin();
+    fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAhtBao2njYVi96Uz7q4xFZFi21ZvedCUk',
+    {
+        method: 'POST',
+        body: JSON.stringify({
+            email: useremail,
+            password : userpassword,
+            returnSecureToken: true
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    ).then((res) => {
+        if(res.ok){
+            return res.json().then(()=>{
+                alert('Login Sucess')
+            });
+            
+        }else{
+            return res.json().then(data => {
+                let errorMessage = 'Login Fail'
+                console.log(data)
+                alert(error.errorMessage)
+                throw new Error(errorMessage)
+            })
+        }
+    }).then((data)=>{
+       
+        console.log(data)
+  })
+    .catch((error)=>{
+        alert(error.errorMessage)
+    })
+    setEmail('')
+    setPassword('')
   };
 
   return (
-    <form onSubmit={handleLogin}>
+    <div className='LogIndiv'>
+    <form onSubmit={handleLogin} className='LogInForm'>
+      <h3>Log-In</h3>
       <label>Email:</label>
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      <input className='LoginInput' type="email" value={useremail} onChange={(e) => setEmail(e.target.value)} required />
       <label>Password:</label>
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-      <button type="submit">Login</button>
+      <input className='LoginInput' type="password" value={userpassword} onChange={(e) => setPassword(e.target.value)} required />
+      <button className='Loginbutton' type="submit">Login</button>
     </form>
+    </div>
   );
 };
 

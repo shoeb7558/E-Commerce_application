@@ -30,6 +30,9 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen,cartItems
         <Link to='/SignIn' className='labels'>
         SignIn
         </Link>
+        <Link to='/LogIn' className='labels'>
+        Login
+        </Link>
         
 
         <button className='cartbutton' onClick={openCart}>
