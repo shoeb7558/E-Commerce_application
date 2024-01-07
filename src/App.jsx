@@ -10,7 +10,8 @@ import Products from './Products/Products';
 import ProductsDetail from './Products/ProductsDetail';
 import SignInForm from './Auth/SignIn';
 import LoginForm from './Auth/Login';
-import AuthContext, { AuthContextProvider } from './storage/AuthContext';
+import { AuthContextProvider } from './storage/AuthContext';
+import ChangePassword from './Auth/ChangePassword';
 
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
           <Route path="/Products/:productId" element={<ProductsDetail productsArr={productsArr} />} />
           <Route path="/SignIn" element={<SignInForm/>}/>
           <Route path="/LogIn" element={<LoginForm/>}/>
+          <Route path="/changePass" element={<ChangePassword/>}/>
         </Routes>
         {/* <Cards datatransfer={productsArr} addToCart={addToCart} /> */}
       </div>
