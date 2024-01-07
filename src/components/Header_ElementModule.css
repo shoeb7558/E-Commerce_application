@@ -17,6 +17,9 @@
     font-size: 20px;
     margin-left: 50px;
     margin-top: 20px;
+    text-decoration: none;
+    color: inherit; /* Ensures that the link color matches the default text color */
+      
 }
 .cartbutton{
     width: 100px;
@@ -70,4 +73,15 @@
     width: 30px;
     height: 28px;
     background-color: rgba(231, 218, 218, 0.996);
+}
+
+.logoutbutton{
+    border-radius: 10px;
+    margin-left: 30px ;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #D2B4DE;
+    border-color: #85C1E9;
 }
