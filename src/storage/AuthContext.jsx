@@ -1,27 +1,36 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const AuthContext = React.createContext({
-  token: "",
-  isLoggedIn: false,
-  login: (token) => {},
-  logout: () => {},
-});
+    token: '',
+    isLoggedIn: false,
+    email: '', // Add the email property
+    login: (token, email) => {},
+    logout: () => {},
+  });
 
 export const AuthContextProvider = (props) => {
   const initialToken = localStorage.getItem("token");
+  const initialemail = localStorage.getItem("email");
   const [token, setToken] = useState(initialToken);
+  const [email, setEmail] = useState(initialemail);
+ 
   const timeoutRef = useRef(null);
   const isMounted = useRef(true);
 
-  const loginHandler = (token) => {
+  const loginHandler = (token, email) => {
     setToken(token);
+    setEmail(email);
     localStorage.setItem("token", token);
+    localStorage.setItem("email", email);
     scheduleTokenRemoval();
   };
+  
 
   const logoutHandler = () => {
     setToken(null);
     localStorage.removeItem("token");
+   
+    localStorage.removeItem("tokenTimeout");
     clearTokenRemoval();
   };
 
@@ -34,6 +43,7 @@ export const AuthContextProvider = (props) => {
     // Automatically remove the token from local storage after 5 minutes
     timeoutRef.current = setTimeout(() => {
       localStorage.removeItem("token");
+     
       localStorage.removeItem("tokenTimeout");
     },5 * 60 * 1000); // 5 minutes in milliseconds
   };
@@ -53,6 +63,7 @@ export const AuthContextProvider = (props) => {
       // Calculate the remaining time and reschedule the token removal
       timeoutRef.current = setTimeout(() => {
         localStorage.removeItem("token");
+        
         localStorage.removeItem("tokenTimeout");
       }, 5 * 60 * 1000 - elapsedTime);
     } else {
@@ -68,6 +79,7 @@ export const AuthContextProvider = (props) => {
   const contextValue = {
     token: token,
     isLoggedIn: !!token,
+    email: email,
     login: loginHandler,
     logout: logoutHandler,
   };

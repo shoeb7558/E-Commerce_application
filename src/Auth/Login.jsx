@@ -40,7 +40,9 @@ const LoginForm =() => {
             })
         }
     }).then((data)=>{
-       AuthCtx.login(data.idToken)
+      AuthCtx.login(data.idToken, data.email);
+
+       
        Navigate('/');
        console.log(data)
   })
