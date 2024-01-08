@@ -1,5 +1,5 @@
 // App.js
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header_Element from './components/Header_Element';
 import About from './About/About';
@@ -12,12 +12,15 @@ import SignInForm from './Auth/SignIn';
 import LoginForm from './Auth/Login';
 import AuthContext, { AuthContextProvider } from './storage/AuthContext';
 import ChangePassword from './Auth/ChangePassword';
+import Cart from './cart/Cart';
+
 
 
 
 function App() {
   const authCtx = useContext(AuthContext);
-  const isLoggedIn = authCtx.isLoggedIn;
+  
+  
  
   const productsArr = [
     {
@@ -46,20 +49,78 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [itemsincart, setitemsincart] = useState(0);
 
-  const openCart = () => {
+  const openCart = async () => {
     setCartOpen(true);
+  
   };
+
+  const fetchCartData = async () => {
+    const useremail = localStorage.getItem("email").replace(/[@.]/g, "");
+    if (useremail) {
+      try {
+        const response = await fetch(`https://crudcrud.com/api/632fc692a00b4e1b9f9e58a7996e0310/${useremail}`);
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data)
+          setCartItems((prevCartItems) => [...prevCartItems, ...data[0]?.cartItems]);
+        } else {
+          console.error('Failed to fetch cart items:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching cart items:', error);
+      }
+    }
+  };
+  
+  
+  
+  
 
   const closeCart = () => {
     setCartOpen(false);
   };
 
   const addToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]);
-    setitemsincart(itemsincart + 1);
-  };
-
+    const useremail = localStorage.getItem("email").replace(/[@.]/g, "");
+    console.log('useremail', useremail);
   
+    // Include both existing cart items and the new item
+    const updatedCartItems = [...cartItems, item];
+  
+    fetch(`https://crudcrud.com/api/632fc692a00b4e1b9f9e58a7996e0310/${useremail}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ cartItems: updatedCartItems }),
+    })
+      .then(response => {
+        console.log(response);
+        if (!response.ok) {
+          throw new Error(`Failed to add item to cart. Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Item added to cart successfully:', data);
+        setCartItems(updatedCartItems);  // Update with both existing and new items
+        setitemsincart(prevItemsInCart => prevItemsInCart + 1);
+      })
+      .catch(error => {
+        console.error('Error adding item to cart:', error);
+      });
+  };
+  
+  
+  
+  
+  
+  useEffect(() => {
+    // The initial fetch to get cart items when the component mounts
+    
+    fetchCartData();
+  }, []);
+ 
 
   return (
     <AuthContextProvider>
@@ -93,7 +154,7 @@ function App() {
             </>
           )}
            
-         
+           <Route path="/cart" element={<Cart cartItems={cartItems}/>}/>
          
         </Routes>
        
