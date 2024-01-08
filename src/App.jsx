@@ -1,18 +1,21 @@
-// App.js
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header_Element from './components/Header_Element';
-import About from './About/About';
-import Home from './Home/Home';
-import Cards from './Cards/Cards';
-import ContactUs from './ContactUS/ContactUs';
-import Products from './Products/Products';
-import ProductsDetail from './Products/ProductsDetail';
-import SignInForm from './Auth/SignIn';
-import LoginForm from './Auth/Login';
-import AuthContext, { AuthContextProvider } from './storage/AuthContext';
-import ChangePassword from './Auth/ChangePassword';
-import Cart from './cart/Cart';
+import AuthContext, {AuthContextProvider} from './storage/AuthContext';
+
+// Lazy loading for other components
+const About = lazy(() => import('./About/About'));
+const Home = lazy(() => import('./Home/Home'));
+const Cards = lazy(() => import('./Cards/Cards'));
+const ContactUs = lazy(() => import('./ContactUS/ContactUs'));
+const Products = lazy(() => import('./Products/Products'));
+const SignInForm = lazy(() => import('./Auth/SignIn'));
+const LoginForm = lazy(() => import('./Auth/Login'));
+const ChangePassword = lazy(() => import('./Auth/ChangePassword'));
+const Cart = lazy(() => import('./cart/Cart'));
+
+// Lazy loading for ProductsDetail
+const ProductsDetail = lazy(() => import('./Products/ProductsDetail'));
 
 
 
@@ -124,44 +127,48 @@ function App() {
 
   return (
     <AuthContextProvider>
-    <Router>
-      <div>
-        <Header_Element
-          datatransfer={productsArr}
-          addToCart={addToCart}
-          itemsincart={itemsincart}
-          openCart={openCart}
-          closeCart={closeCart}
-          isCartOpen={isCartOpen}
-          cartItems={cartItems}
-          
-        />
-        
-        <Routes>
-          
-          <Route path="/about" element={<About />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/ContactUS" element={<ContactUs/>}/>
-          <Route path='/store' element={ <Cards datatransfer={productsArr} addToCart={addToCart} />} />
-          <Route path='/Products' element={ <Products productsArr={productsArr} />}/>
-          <Route path='/Products/:productId' element={<ProductsDetail productsArr={productsArr} />} />
-          
-            <Route path='/changePass' element={<ChangePassword/>}/>
-          {!authCtx.isLoggedIn && (
-            <>
-             <Route path="/SignIn" element={<SignInForm/>}/>
-            <Route path="/LogIn" element={<LoginForm/>}/>
-            </>
-          )}
-           
-           <Route path="/cart" element={<Cart cartItems={cartItems}/>}/>
-         
-        </Routes>
-       
-      
-        
-      </div>
-    </Router>
+      <Router>
+        <div>
+          <Header_Element
+            datatransfer={productsArr}
+            addToCart={addToCart}
+            itemsincart={itemsincart}
+            openCart={openCart}
+            closeCart={closeCart}
+            isCartOpen={isCartOpen}
+            cartItems={cartItems}
+          />
+
+          <Routes>
+            {/* Lazy-loaded routes for other components */}
+            <Route path="/about" element={<Suspense fallback={<div>Loading...</div>}><About /></Suspense>} />
+            <Route path="/" element={<Suspense fallback={<div>Loading...</div>}><Home /></Suspense>} />
+            <Route path="/ContactUS" element={<Suspense fallback={<div>Loading...</div>}><ContactUs /></Suspense>} />
+            <Route path='/store' element={<Suspense fallback={<div>Loading...</div>}><Cards datatransfer={productsArr} addToCart={addToCart} /></Suspense>} />
+            <Route path='/Products' element={<Suspense fallback={<div>Loading...</div>}><Products productsArr={productsArr} /></Suspense>} />
+
+            {/* Lazy-loaded route for ProductsDetail */}
+            <Route
+              path='/Products/:productId'
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ProductsDetail productsArr={productsArr} />
+                </Suspense>
+              }
+            />
+
+            <Route path='/changePass' element={<Suspense fallback={<div>Loading...</div>}><ChangePassword /></Suspense>} />
+            {!authCtx.isLoggedIn && (
+              <>
+                <Route path="/SignIn" element={<Suspense fallback={<div>Loading...</div>}><SignInForm /></Suspense>} />
+                <Route path="/LogIn" element={<Suspense fallback={<div>Loading...</div>}><LoginForm /></Suspense>} />
+              </>
+            )}
+
+            <Route path="/cart" element={<Suspense fallback={<div>Loading...</div>}><Cart cartItems={cartItems} /></Suspense>} />
+          </Routes>
+        </div>
+      </Router>
     </AuthContextProvider>
   );
 }
