@@ -41,7 +41,7 @@ const LoginForm =() => {
         }
     }).then((data)=>{
        AuthCtx.login(data.idToken)
-       Navigate('/store');
+       Navigate('/');
        console.log(data)
   })
     .catch((error)=>{
