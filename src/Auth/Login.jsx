@@ -41,11 +41,13 @@ const LoginForm =() => {
         }
     }).then((data)=>{
        AuthCtx.login(data.idToken)
-       Navigate('/');
+       Navigate('/store');
+       console.log(data)
   })
     .catch((error)=>{
         alert(error.errorMessage)
     })
+    
     setEmail('')
     setPassword('')
   };
