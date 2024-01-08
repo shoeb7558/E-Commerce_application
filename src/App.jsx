@@ -1,5 +1,5 @@
 // App.js
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header_Element from './components/Header_Element';
 import About from './About/About';
@@ -14,7 +14,11 @@ import AuthContext, { AuthContextProvider } from './storage/AuthContext';
 import ChangePassword from './Auth/ChangePassword';
 
 
+
 function App() {
+  const authCtx = useContext(AuthContext);
+  const isLoggedIn = authCtx.isLoggedIn;
+ 
   const productsArr = [
     {
       title: 'Colors',
@@ -55,6 +59,8 @@ function App() {
     setitemsincart(itemsincart + 1);
   };
 
+  
+
   return (
     <AuthContextProvider>
     <Router>
@@ -71,17 +77,28 @@ function App() {
         />
         
         <Routes>
+          
           <Route path="/about" element={<About />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/" element={<Cards datatransfer={productsArr} addToCart={addToCart} /> }/>
+          <Route path="/" element={<Home />} />
           <Route path="/ContactUS" element={<ContactUs/>}/>
-          <Route path="/Products" element={<Products productsArr={productsArr} />} />
-          <Route path="/Products/:productId" element={<ProductsDetail productsArr={productsArr} />} />
-          <Route path="/SignIn" element={<SignInForm/>}/>
-          <Route path="/LogIn" element={<LoginForm/>}/>
-          <Route path="/changePass" element={<ChangePassword/>}/>
+          <Route path='/store' element={ <Cards datatransfer={productsArr} addToCart={addToCart} />} />
+          <Route path='/Products' element={ <Products productsArr={productsArr} />}/>
+          <Route path='/Products/:productId' element={<ProductsDetail productsArr={productsArr} />} />
+          
+            <Route path='/changePass' element={<ChangePassword/>}/>
+          {!authCtx.isLoggedIn && (
+            <>
+             <Route path="/SignIn" element={<SignInForm/>}/>
+            <Route path="/LogIn" element={<LoginForm/>}/>
+            </>
+          )}
+           
+         
+         
         </Routes>
-        {/* <Cards datatransfer={productsArr} addToCart={addToCart} /> */}
+       
+      
+        
       </div>
     </Router>
     </AuthContextProvider>

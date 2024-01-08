@@ -49,7 +49,7 @@ function Home() {
         }
         const result = await response.json();
         // Convert the Firebase data object into an array of movies
-        const moviesArray = Object.keys(result).map((key) => ({ id: key, ...result[key] }));
+        const moviesArray = result ? Object.keys(result).map((key) => ({ id: key, ...result[key] })) : [];
         setdata(moviesArray);
         console.log(moviesArray);
       } catch (error) {
@@ -69,8 +69,9 @@ function Home() {
 
   return (
     <div>
-      <AddMovies onsubmit={HandleAddMovie} />
       <h1>This is the home page</h1>
+      <AddMovies onsubmit={HandleAddMovie} />
+      
       {isLoading ? (
         <p>Loading...</p>
       ) : error ? (

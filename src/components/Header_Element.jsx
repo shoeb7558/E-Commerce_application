@@ -19,13 +19,13 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
   return (
     <>
       <div className='headerdiv'>
-        <Link to='/home' className='labels'>
+        <Link to='/' className='labels'>
           Home
         </Link>
 
         {isLoggedIn && (
           <>
-            <Link to='/' className='labels'>
+            <Link to='/store' className='labels'>
               Store
             </Link>
 
