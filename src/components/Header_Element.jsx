@@ -6,6 +6,7 @@ import AuthContext from '../storage/AuthContext';
 import logo from './logo.png';
 
 
+
 function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItems, setitemsincart }) {
     const AuthCtx = useContext(AuthContext);
     const Navigate = useNavigate();
@@ -35,19 +36,27 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
     return (
         <div className='headerdiv'>
             <div className='outerheader'>
+            <img className='logoimage' src={logo} alt='vita_logo'></img>
                 <div className='imagediv'>
-                <img className='logoimage' src={logo} alt='vita_logo'></img>
-                </div>
-                <Link to='/' className='labels'>
+                    
+                    <nav>
+                    <input type="checkbox" id="check"/>
+      
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+        
+        <li><a href="#"><Link to='/' className='labels'>
                     Store
-                </Link>
-                <Link to='/' className='labels'>
+                </Link></a></li>
+        <li><a href="#"><Link to='/' className='labels'>
                     man
-                </Link>
-                <Link to='/' className='labels'>
+                </Link></a></li>
+        <li><a href="#"><Link to='/' className='labels'>
                     women
-                </Link>
-                {AuthCtx.isLoggedIn && (
+                </Link></a></li>
+        <li><a href="#">{AuthCtx.isLoggedIn && (
                     <>
                     <Link to='/myorders' className='labels'>
                         My Orders
@@ -55,10 +64,27 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
                     </>
                 )
 
-                }
-                
-                
-                {isAdmin && (
+                }</a></li>
+                <li><a href="#">{AuthCtx.isLoggedIn ? (
+                                <>
+                                    {/* <Link to='/changePass' className='labels'>
+                                        Change Password
+                                    </Link> */}
+                                    <button onClick={logoutHandler} className='logoutbutton'>
+                                        Logout
+                                    </button>
+                                </>
+                            ) : (
+                                <>
+                                    <Link to='/SignIn' className='labels'>
+                                        Sign In
+                                    </Link>
+                                    <Link to='/LogIn' className='labels'>
+                                        Login
+                                    </Link>
+                                </>
+                            )}</a></li>
+                <li><a href="#">{isAdmin && (
                     <>
                         <Link to='/Orders' className='labels'>
                             Orders
@@ -67,9 +93,31 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
                             Products Form
                         </Link>
                     </>
-                )}
+                )}</a></li>
+      </ul>
+    </nav>
+   
+                
                 </div>
-                <div className="dropdown">
+                
+                
+                
+                
+                
+                
+                
+                {/* {isAdmin && (
+                    <>
+                        <Link to='/Orders' className='labels'>
+                            Orders
+                        </Link>
+                        <Link to='/ProductsForm' className='labels'>
+                            Products Form
+                        </Link>
+                    </>
+                )} */}
+                </div>
+                {/* <div className="dropdown">
                     <button className="dropbtn" onClick={toggleSettings}>Settings</button>
                     {isSettingsOpen && (
                         <div className="dropdown-content">
@@ -94,7 +142,7 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
                             )}
                         </div>
                     )}
-                </div>
+                </div> */}
             
             {/* Cart button */}
             <button onClick={handleCartButtonClick} className='cartbutton'>Cart</button>

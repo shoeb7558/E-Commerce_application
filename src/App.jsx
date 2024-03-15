@@ -235,7 +235,7 @@ function App() {
         />
         <div style={{display:'flex'}}>
 
-        <Catagory />
+        {/* <Catagory /> */}
 
       <div style={{ width:'100%' ,overflowY: 'auto', maxHeight: 'calc(100vh - 100px)' }}>
         <Routes>
