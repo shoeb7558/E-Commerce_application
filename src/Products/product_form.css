@@ -1,37 +1,37 @@
 .div2{
     justify-content: center;
     text-align: center;
-    align-items: center;
-   
+    
 }
 
 .form1{
     background-color: rgb(240, 239, 239);
     margin: 50px;
-    height: 300px;
+    height: fit-content;
     padding: 50px;
     text-align: left;
     border-radius: 3px;
-    
     
 }
 
 .Labels1{
     padding: 5px;
-    margin: 0px;
 }
 .input1{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 8px;
-    border-radius: 3px;
 }
 .submitbutton{
-    border-radius: 5px;
+    border-radius: 10px;
     margin-left: 30px ;
     padding-left: 10px;
     padding-right: 10px;
     height: 40px;
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: #D2B4DE;
     border-color: #85C1E9;
+}
+
+.sizediv{
+    display: flex;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './contactUSModule.css';
+import { Link } from 'react-router-dom';
 
 function ContactUs() {
   const [formData, setFormData] = useState({
@@ -86,11 +87,11 @@ function ContactUs() {
             onChange={handleChange}
             required
           />
-
           <button type="submit" className='submitbutton'>
-            Submit Issue
+            Submit
           </button>
         </form>
+        
       </div>
     </div>
   );

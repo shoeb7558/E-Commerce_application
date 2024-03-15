@@ -1,0 +1,44 @@
+/* Style for checkboxes */
+input[type="checkbox"] {
+    margin-right: 15px;
+  }
+  
+  /* Style for labels */
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: medium;
+  }
+  .container {
+    margin: 20px;
+  }
+  
+  .hamburger-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+  }
+  .menu-content {
+    top: 100%;
+    left: 0;   
+    padding: 10px;
+    max-width: 200px;
+    min-width: 150px;
+    
+  }
+  /* Style for container */
+  /* .container {
+    flex: 0 0 calc(15% - 40px);
+    max-width: 400px;
+    min-height: 250px;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-top: 30px;
+    background-color: #f6f5f5;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+  } */
+  
