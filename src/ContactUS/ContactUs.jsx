@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './contactUSModule.css';
-import { Link } from 'react-router-dom';
+import './ContactUSModule.css';
+
 
 function ContactUs() {
   const [formData, setFormData] = useState({
