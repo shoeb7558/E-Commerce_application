@@ -32,9 +32,9 @@ const LoginForm =() => {
             return res.json()
             
         }else{
-            return res.json().then(data => {
+            return res.json().then(() => {
                 let errorMessage = 'Login Fail'
-                console.log(data)
+                
                 alert(error.errorMessage)
                 throw new Error(errorMessage)
             })
@@ -44,7 +44,7 @@ const LoginForm =() => {
 
        
        Navigate('/');
-       console.log(data)
+       
   })
     .catch((error)=>{
         alert(error.errorMessage)

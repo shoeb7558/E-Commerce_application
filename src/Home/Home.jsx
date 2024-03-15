@@ -36,6 +36,7 @@ function Home() {
     });
     const responseData = await response.json();
     console.log(responseData);
+    fetchData();
   };
 
   useEffect(() => {
@@ -62,14 +63,16 @@ function Home() {
 
     fetchData();
   }, []);
+  
 
   useEffect(() => {
     console.log(addeddata);
+    
   }, [addeddata]);
 
   return (
     <div>
-      <h1>This is the home page</h1>
+{/*       
       <AddMovies onsubmit={HandleAddMovie} />
       
       {isLoading ? (
@@ -89,7 +92,7 @@ function Home() {
             </li>
           ))}
         </ul>
-      )}
+      )} */}
     </div>
   );
 }
