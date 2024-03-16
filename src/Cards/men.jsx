@@ -49,18 +49,22 @@ function Men({ addToCart }) {
     const itemWithSelectedSizes = { ...selectedItem, sizes: selectedSizes };
     addToCart(itemWithSelectedSizes);
   };
-
+ 
   return (
+    
     <div className='CardDiv0'>
-      {menData.map((product, index) => (
-        <div key={index} className='Carddiv'>
-          <Link className='Linkstyle' to={`/Products/${index}`} key={index}>
+        
+      {menData.map((product, Index) => (
+        
+        <div key={Index} className='Carddiv'>
+          <Link className='Linkstyle' to={`/Products/${product.name}`} key={Index}>
             <img src={product.Image} alt={product.title} />
           </Link>
+          <p>{Index}</p>
           <h2 className='titleproduct'>{product.name}</h2>
           <div className='innerdiv'>
             <p>₹ {product.price}</p>
-            <button className='addtocardbutton' onClick={() => addtocartbutton(index)}>
+            <button className='addtocardbutton' onClick={() => addtocartbutton(Index)}>
               Add To Cart
             </button>
           </div>

@@ -16,10 +16,10 @@
     font-weight: lighter;
   }
   .Carddiv {
-    flex: 0 0 calc(20% - 0px); /* Set the width of each card to 50%, minus the margin */
+    flex: 0 0 calc(30% - 100px); /* Set the width of each card to 50%, minus the margin */
     height: 400px;
-    max-width: 300px;
-    min-width: 300px;
+    max-width: 400px;
+    min-width: 180px;
     border-radius: 3px;
     background-color: #fafafa;
     margin: 3px;
@@ -62,13 +62,22 @@
     border-radius: 4px;
     padding-top: 8px;
     padding-bottom: 8px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     border:1px solid #000000;
     box-shadow: 5px 5px black;
     transition: transform 0.5s;
+
   }
 
   .addtocardbutton:active {
     transform: translateY(5px); /* Move the button down slightly when clicked */
+}
+
+@media (max-width: 600px) {
+  .addtocardbutton {
+    font-size: smaller;
+    max-width: 80px;
+    /* Set smaller max-width for smaller screens */
+  }
 }

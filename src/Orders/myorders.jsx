@@ -41,8 +41,8 @@ function Orders() {
        
         <dl>
           {orders.map((order, index) => (
-             <div className='ordersdiv2'>
-            <li key={order.id}>
+             <div key={order.id} className='ordersdiv2'>
+            <li >
               <h3>Order {index + 1}</h3>
               <p>Name: {order.name}</p>
               <p>Price: {order.price}</p>
