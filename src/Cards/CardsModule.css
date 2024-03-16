@@ -18,6 +18,7 @@
   .Carddiv {
     flex: 0 0 calc(30% - 100px); /* Set the width of each card to 50%, minus the margin */
     height: 400px;
+    
     max-width: 400px;
     min-width: 140px;
     border-radius: 3px;
@@ -67,6 +68,8 @@
     border:1px solid #000000;
     box-shadow: 5px 5px black;
     transition: transform 0.5s;
+    margin-right: 10px;
+    margin-top: 20px;
 
   }
 
@@ -78,6 +81,14 @@
   .addtocardbutton {
     font-size: xx-small;
     max-width: 40px;
+    /* Set smaller max-width for smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .Carddiv {
+    font-size: xx-small;
+    max-height: 300px;
     /* Set smaller max-width for smaller screens */
   }
 }
