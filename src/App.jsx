@@ -8,6 +8,7 @@ import ProductsForm from './Products/productsForm';
 // import vitatshirt from './About/vita_logo.jpg'
 import Orders from './Orders/orders';
 import Men from './Cards/men';
+import Women from './Cards/women';
 
 
 
@@ -253,6 +254,7 @@ function App() {
             <>
               <Route path='/' element={<Suspense fallback={<div>Loading...</div>}><Cards datatransfer={productsArr} addToCart={addToCart} /></Suspense>} />
               <Route path='/Men' element={<Suspense fallback={<div>Loading...</div>}><Men  addToCart={addToCart} /></Suspense>} />
+              <Route path='/Women' element={<Suspense fallback={<div>Loading...</div>}><Women  addToCart={addToCart} /></Suspense>} />
               {/* <Route path='/Products' element={<Suspense fallback={<div>Loading...</div>}><Products productsArr={productsArr} /></Suspense>} /> */}
             </>
         
