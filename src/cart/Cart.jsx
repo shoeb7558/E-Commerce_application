@@ -34,10 +34,10 @@ const Cart = ({ isOpen, onClose, cartItems, setitemsincart }) => {
           <Link onClick={onClose} className='Linkstyle' to={`/Products/${index}`} key={index}>
           <div key={index} className='CartItem'>
 
-            <img src={item.Image} alt="Product Image" style={{ maxWidth: '200px' }} />
+            <img className='img1' src={item.Image} alt="Product Image" />
             <div className='datadiv'>
             <h3>{item.name}</h3>
-            <p>Price: ${item.price}</p>
+            <p>Price:  ₹{item.price}</p>
             </div>
           
             

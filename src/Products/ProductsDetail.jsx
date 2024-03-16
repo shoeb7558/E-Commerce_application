@@ -13,12 +13,20 @@ function ProductsDetail({ productsArr, addToCart }) {
   const [orderClicked, setOrderClicked] = useState(false); // State to indicate "Order Now" clicked
   const [productInfo, setProductInfo] = useState(null);
 
-  const addtocartbutton = (item) => {
-    dispatch(addItemToCart(item)); // Dispatching the Redux action
-    const selectedItem = productsArr[item];
-    addToCart(selectedItem);
-  };
+  
+ 
 
+  const addtocartbutton = (index) => {
+    const selectedItem = datatransfer[index];
+    const selectedSizes = Object.entries(selectedItem.sizes)
+      .filter(([size, available]) => available) // Filter out sizes that are true
+      .reduce((acc, [size]) => {
+        acc[size] = true;
+        return acc;
+      }, {});
+    const itemWithSelectedSizes = { ...selectedItem, sizes: selectedSizes };
+    addToCart(itemWithSelectedSizes);
+  };
   const handleSizeChange = (selectedSize) => {
     setSelectedSize(selectedSize); // Update the selected size
   };
