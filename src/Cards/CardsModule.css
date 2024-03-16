@@ -19,7 +19,7 @@
     flex: 0 0 calc(30% - 100px); /* Set the width of each card to 50%, minus the margin */
     height: 400px;
     max-width: 400px;
-    min-width: 180px;
+    min-width: 140px;
     border-radius: 3px;
     background-color: #fafafa;
     margin: 3px;
@@ -76,8 +76,8 @@
 
 @media (max-width: 600px) {
   .addtocardbutton {
-    font-size: smaller;
-    max-width: 80px;
+    font-size: xx-small;
+    max-width: 40px;
     /* Set smaller max-width for smaller screens */
   }
 }
