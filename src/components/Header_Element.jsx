@@ -53,7 +53,7 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
         <li><a ><Link to='/Men' className='labels'>
                     man
                 </Link></a></li>
-        <li><a ><Link to='/' className='labels'>
+        <li><a ><Link to='/Women' className='labels'>
                     women
                 </Link></a></li>
         <li><a>{AuthCtx.isLoggedIn && (
