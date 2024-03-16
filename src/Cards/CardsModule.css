@@ -76,7 +76,7 @@
 
 @media (max-width: 600px) {
   .addtocardbutton {
-    font-size:xx-small;
+    font-size: xx-small;
     max-width: 40px;
     /* Set smaller max-width for smaller screens */
   }
