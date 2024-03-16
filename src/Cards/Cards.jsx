@@ -24,8 +24,12 @@ function Cards({ datatransfer, addToCart }) {
             <img src={product.Image} alt={product.title} />
           </Link>
           <h2 className='titleproduct'>{product.name}</h2>
+          
           <div className='innerdiv'>
+            <div style={{display:'grid'}}>
+          <p> {product.Sex}</p>
             <p>₹ {product.price}</p>
+            </div>
             <button className='addtocardbutton' onClick={() => addtocartbutton(index)}>
               Add To Cart
             </button>

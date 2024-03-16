@@ -50,12 +50,7 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
         <li><a ><Link to='/' className='labels'>
                     Store
                 </Link></a></li>
-        {/* <li><a ><Link to='/Men' className='labels'>
-                    man
-                </Link></a></li>
-        <li><a ><Link to='/Women' className='labels'>
-                    women
-                </Link></a></li> */}
+        
         <li><a>{AuthCtx.isLoggedIn && (
                     <>
                     <Link to='/myorders' className='labels'>
@@ -76,19 +71,35 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
                                 </>
                             ) : (
                                 <>
+                                
                                     <Link to='/SignIn' className='labels'>
                                         Sign In
                                     </Link>
-                                    <Link to='/LogIn' className='labels'>
-                                        Login
-                                    </Link>
+                                    
                                 </>
                             )}</a></li>
-                <li><a>{isAdmin && (
+                <li><a>
+                    {!AuthCtx.isLoggedIn && (
+                        <Link to='/LogIn' className='labels'>
+                        Login
+                    </Link>
+                     )
+
+                    }
+                    </a></li>
+                    <li><a>
+                    {isAdmin && (
                     <>
                         <Link to='/Orders' className='labels'>
                             Orders
                         </Link>
+                        
+                    </>
+                )}</a></li>
+                 <li><a>
+                    {isAdmin && (
+                    <>
+                      
                         <Link to='/ProductsForm' className='labels'>
                             Products Form
                         </Link>
