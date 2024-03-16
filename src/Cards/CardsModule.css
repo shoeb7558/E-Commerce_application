@@ -56,10 +56,19 @@
     margin: 10px; /* Add some spacing between text elements and edges of the card */
   }
   
-  .addtocartbutton{
+  .addtocardbutton{
     font-size: small;
     background-color: #fffc30;
     border-radius: 4px;
-    border-color: #D2B4DE;
-    padding: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border:1px solid #000000;
+    box-shadow: 5px 5px black;
+    transition: transform 0.5s;
   }
+
+  .addtocardbutton:active {
+    transform: translateY(5px); /* Move the button down slightly when clicked */
+}

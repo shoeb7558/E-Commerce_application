@@ -1,37 +1,59 @@
 .cartdiv{
-    width: 450px;
-    height: 300px;
+    width: 1000px;
+    height: 800px;
     border-radius: 20px;
-    background-color: #D2B4DE;
+    background-color: #e8e2e2;
    
 }
+.cartdiv h2{
+  margin-bottom: 10px;
+}
+
 .cart {
     max-height: 400px; /* Set the maximum height for the cart */
     overflow-y: auto; /* Enable vertical scrolling */
   }
-  
+/*   
   .addtocartbutton{
     font-size: 15px;
     background-color: #D2B4DE;
     border-radius: 5px;
     border-color: #D2B4DE;
-  }
+  } */
   /* CartModule.css */
 .CartItem {
-    border: 1px solid #ccc;
+    border: 1px solid #939191;
     margin-bottom: 10px;
     padding: 10px;
     display: flex;
+    border-radius: 5px;
   }
   .datadiv{
     display: grid;
     justify-content: center;
     align-items: center;
     margin: 10px;
-    background-color: #D2B4DE;
+    background-color: #e8e2e2;
   }
   .closecart{
-    padding: 5px;
-    background-color: #D2B4DE;
+    padding: 10px;
+    /* background-color: #D2B4DE; */
     border-radius: 5px;
+
+
   }
+
+  .close{
+    padding: 8px;
+    border:1px solid #49384f;
+    background-color: #fffc30;
+    border-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    box-shadow: 5px 5px black;
+    transition: transform 0.5s;
+  }
+
+  .close:active {
+    transform: translateY(5px); /* Move the button down slightly when clicked */
+}

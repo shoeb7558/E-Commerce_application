@@ -1,20 +1,25 @@
 .LogInForm{
-    background-color: #D2B4DE;
-    width: 300px;
-    height: 200px;
+    background-color: #e8e2e2;
+    display: grid;
     border-radius: 20px;
     justify-content: center;
     text-align: left;
-    padding-bottom: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 50px;
+    border: 1px solid #ece9e9;
+    box-shadow: 15px 15px 20px black;
+    
 
 }
 
 .LogIndiv{
-    display: flex;
+    display: grid;
     justify-content: center;
     margin: 10px;
+  
     
 }
 
@@ -22,12 +27,20 @@
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 20px ;
-    width: 250px;
+  
 }
 
 .Loginbutton{
+    background-color:#fffc30 ;
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 20px ;
+    border: 1px solid rgb(53, 53, 53);
     width: 100px;
+    box-shadow: 5px 5px black;
+    transition: transform 0.5s;
+}
+
+.Loginbutton:active {
+  transform: translateY(5px); /* Move the button down slightly when clicked */
 }

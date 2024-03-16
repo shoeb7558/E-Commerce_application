@@ -26,7 +26,7 @@ function Cards({ datatransfer, addToCart }) {
           <h2 className='titleproduct'>{product.name}</h2>
           <div className='innerdiv'>
             <p>₹ {product.price}</p>
-            <button className='addtocartbutton' onClick={() => addtocartbutton(index)}>
+            <button className='addtocardbutton' onClick={() => addtocartbutton(index)}>
               Add To Cart
             </button>
           </div>

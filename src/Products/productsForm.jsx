@@ -5,6 +5,7 @@ function ProductsForm() {
     const [formData, setFormData] = useState({
         name: '',
         price: '',
+        Sex: '',
         Image: '',
         sizes: {
             small: false,
@@ -13,7 +14,7 @@ function ProductsForm() {
         },
     });
     const handleChange = (e) => {
-        if (e.target.id === 'name' || e.target.id === 'price' || e.target.id === 'Image') {
+        if (e.target.id === 'name' || e.target.id === 'price' || e.target.id === 'Image' || e.target.id === 'Sex') {
             setFormData({
                 ...formData,
                 [e.target.id]: e.target.value,
@@ -52,6 +53,7 @@ function ProductsForm() {
             setFormData({
                 name: '',
                 price: '',
+                Sex: '',
                 Image: '',
                 sizes: {
                     small: false,
@@ -88,6 +90,17 @@ function ProductsForm() {
                         placeholder="Price"
                         className='input1'
                         value={formData.price}
+                        onChange={handleChange}
+                        required
+                    />
+                    <label htmlFor="Sex" className='Labels1'>
+                        Sex
+                    </label>
+                    <input
+                        id="Sex"
+                        placeholder="Male/Female"
+                        className='input1'
+                        value={formData.Sex}
                         onChange={handleChange}
                         required
                     />

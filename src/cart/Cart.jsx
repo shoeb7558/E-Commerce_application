@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import './CartModule.css';
 import AuthContext from '../storage/AuthContext';
+import { Link } from 'react-router-dom';
 
 const Cart = ({ isOpen, onClose, cartItems, setitemsincart }) => {
   const [selectedSize, setSelectedSize] = React.useState("");
@@ -30,7 +31,9 @@ const Cart = ({ isOpen, onClose, cartItems, setitemsincart }) => {
       <h2>Shopping Cart</h2>
       {cartItems.length > 0 ? (
         cartItems.map((item, index) => (
+          <Link onClick={onClose} className='Linkstyle' to={`/Products/${index}`} key={index}>
           <div key={index} className='CartItem'>
+
             <img src={item.Image} alt="Product Image" style={{ maxWidth: '200px' }} />
             <div className='datadiv'>
             <h3>{item.name}</h3>
@@ -40,6 +43,7 @@ const Cart = ({ isOpen, onClose, cartItems, setitemsincart }) => {
             
             
           </div>
+          </Link>
         ))
       ) : (
         <p>Your cart is empty</p>

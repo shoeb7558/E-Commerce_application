@@ -6,6 +6,10 @@
 
 }
 
+.detaildiv h1{
+  margin-bottom: 20px;
+}
+
 .detaildiv2{
     display: flex;
     justify-content: left;
@@ -17,27 +21,45 @@
 .detaildiv3{
     margin-left: 20px;
     font-size: large;
+    gap: 20px;
 }
 
 .detaildiv4{
     display: grid;
+    margin: 5px;
+    gap: 10px;
+   
+}
+.detaildiv4 p{
+  margin: 10px;
+  font-size: 20px;
+}
+
+.detaildiv4 input{
+  margin: 10px;
+  font-size: 20px;
 }
 
 .detaildivbuttons{
     display: flex;
     margin: 10px;
     gap: 10px;
+    margin-left: 20px;
+    font-size: 20px;
 }
 
 .addtocartbutton{
+  font-size: 15px;
     max-width: 200px;
     min-width: 10px;
     max-height: 80px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 25px;
+    padding-left: 25px;
     background-color: rgb(255, 248, 37);
+    border:1px solid #000000;
+    box-shadow: 5px 5px black;
     
 }
 
