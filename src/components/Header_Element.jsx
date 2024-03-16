@@ -47,16 +47,16 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
       </label>
       <ul>
         
-        <li><a href="#"><Link to='/' className='labels'>
+        <li><a ><Link to='/' className='labels'>
                     Store
                 </Link></a></li>
-        <li><a href="#"><Link to='/' className='labels'>
+        <li><a ><Link to='/Men' className='labels'>
                     man
                 </Link></a></li>
-        <li><a href="#"><Link to='/' className='labels'>
+        <li><a ><Link to='/' className='labels'>
                     women
                 </Link></a></li>
-        <li><a href="#">{AuthCtx.isLoggedIn && (
+        <li><a>{AuthCtx.isLoggedIn && (
                     <>
                     <Link to='/myorders' className='labels'>
                         My Orders
@@ -65,7 +65,7 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
                 )
 
                 }</a></li>
-                <li><a href="#">{AuthCtx.isLoggedIn ? (
+                <li><a >{AuthCtx.isLoggedIn ? (
                                 <>
                                     {/* <Link to='/changePass' className='labels'>
                                         Change Password
@@ -84,7 +84,7 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
                                     </Link>
                                 </>
                             )}</a></li>
-                <li><a href="#">{isAdmin && (
+                <li><a>{isAdmin && (
                     <>
                         <Link to='/Orders' className='labels'>
                             Orders

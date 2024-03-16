@@ -77,14 +77,14 @@ function ProductsDetail({ productsArr, addToCart }) {
 
   return (
     <div className='detaildiv'>
-      <h1>Detail of the product</h1>
+      <h1>Product Detail</h1>
       
       <div className='detaildiv2'>
         <img className='productdetailimg' src={product.Image} alt={product.name} />
         <div className='detaildiv4'>
         <div className='detaildiv3'>
         <p>Title: {product.name}</p>
-          <p>₹ Price: {product.price}</p>
+          <p> Price: ₹{product.price}</p>
           <p>Available Sizes:</p>
           <div>
             {Object.entries(product.sizes).map(([size, available]) => (
