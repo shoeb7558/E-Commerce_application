@@ -9,15 +9,16 @@
   }
   .titleproduct{
     font-size: medium;
-    height: 20px;
+    
     text-align: center; 
     justify-content: center;
     align-items: center;
+  margin-bottom: 10px;
     font-weight: lighter;
   }
   .Carddiv {
     flex: 0 0 calc(30% - 100px); /* Set the width of each card to 50%, minus the margin */
-    height: 400px;
+    height: 450px;
     
     max-width: 400px;
     min-width: 140px;
