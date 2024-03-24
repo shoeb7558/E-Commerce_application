@@ -28,7 +28,7 @@ function Cards({ datatransfer, addToCart }) {
           
           <div className='innerdiv'>
             <div style={{display:'grid'}}>
-              <p>{product.id}</p>
+              
           <p> {product.Sex}</p>
             <p>₹ {product.price}</p>
             </div>
