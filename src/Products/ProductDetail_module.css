@@ -60,7 +60,7 @@
     background-color: rgb(255, 248, 37);
     border:1px solid #000000;
     box-shadow: 5px 5px black;
-    
+    border-radius: 5px;
     transition: transform 0.5s;
 }
 

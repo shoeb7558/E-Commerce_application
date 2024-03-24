@@ -8,7 +8,8 @@ import UserInfo from './UserInfo';
 function ProductsDetail({ productsArr, addToCart }) {
   const dispatch = useDispatch();
   const { productId } = useParams();
-  const product = productsArr[productId];
+  const product = productsArr.find((product) => product.id === productId);
+  
   const [selectedSize, setSelectedSize] = React.useState(""); // State to store the selected size
   const [orderClicked, setOrderClicked] = useState(false); // State to indicate "Order Now" clicked
   const [productInfo, setProductInfo] = useState(null);
@@ -16,8 +17,8 @@ function ProductsDetail({ productsArr, addToCart }) {
   
  
 
-  const addtocartbutton = (index) => {
-    const selectedItem = datatransfer[index];
+  const addtocartbutton = (product) => {
+    const selectedItem = product;
     const selectedSizes = Object.entries(selectedItem.sizes)
       .filter(([size, available]) => available) // Filter out sizes that are true
       .reduce((acc, [size]) => {
@@ -33,7 +34,16 @@ function ProductsDetail({ productsArr, addToCart }) {
 
   const orderitem = async (item) => {
     setOrderClicked(true); // Set the state to indicate "Order Now" clicked
-    setProductInfo(item);
+    const selectedSizeItems = {
+      name: item.name,
+      price: item.price,
+      Image: item.Image,
+      size: selectedSize // Only store the selected size
+    };
+
+    setProductInfo(selectedSizeItems)
+    console.log(productInfo)
+    
 
 
     const useremail = localStorage.getItem("email").replace(/[@.]/g, "");
@@ -45,6 +55,7 @@ function ProductsDetail({ productsArr, addToCart }) {
           Image: item.Image,
           size: selectedSize // Only store the selected size
         };
+        
   
         // const response = await fetch(`https://react-http-3e2dc-default-rtdb.firebaseio.com/order.json`, {
         //   method: 'POST',
@@ -72,6 +83,7 @@ function ProductsDetail({ productsArr, addToCart }) {
         }
   
         console.log('Order placed successfully');
+        
       } catch (error) {
         console.error('Error placing order:', error);
       }
@@ -121,7 +133,7 @@ function ProductsDetail({ productsArr, addToCart }) {
         </div>
       </div>
       {orderClicked && productInfo && (
-        <UserInfo productInfo={productInfo} /> // Pass product information to UserInfo component
+        <UserInfo productInfo={productInfo} selectedSize={selectedSize}/> // Pass product information to UserInfo component
       )}
     </div>
   );
