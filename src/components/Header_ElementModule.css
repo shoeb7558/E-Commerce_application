@@ -6,7 +6,7 @@ body {
 .headerdiv {
     
     width: 100%;    
-    padding: 30px;
+    padding: 20px;
     background-color: #ffffff;
     display: flex;
     justify-content:space-around;
@@ -41,9 +41,10 @@ body {
 }
 
 .outerheader {
+    padding-bottom: 10px;
     display: flex;
     /* padding: 20px; */
-    /* background-color: #ABC49F; */
+    background-color: #ffffff;
     /* width: 50%; */
     align-items: center;
     justify-content: left;
@@ -86,7 +87,7 @@ body {
     height: 35px;
     font-size: 15px;
     margin-left: 0px;
-    margin-right: 10px;
+    margin-right: 5px;
     margin-top: 10px;
     border-radius: 7px;
     background-color: #fffc30;
@@ -145,6 +146,7 @@ body {
     margin-left: 30px;
     padding-left: 20px;
     padding-right: 20px;
+    margin-bottom: 10px;
     height: 35px;
     margin-top: 10px;
     background-color: #fffc30;
@@ -253,16 +255,15 @@ body {
     /* background: #0082e6; */
     height: 40px;
     width: 100%;
+    margin-top: 10px;
       }
  
-  nav ul{
-    float: left;
-    margin-right: 0px;
-    
-    
-    
-
-  }
+      nav ul {
+        float: left;
+        margin-right: 0px;
+        overflow-y: auto; /* Add scrollbar when content exceeds height */
+      }
+      
   nav ul li{
     display: inline;
     line-height: 20px;
@@ -310,21 +311,23 @@ body {
       position: fixed;
       width: 100%;
       height: 100vh;
-      background: #2c3e50;
+      background-color: #f8f3f3;
       top: 80px;
       left: -100%;
       text-align: center;
       transition: all .5s;
+      margin-top: 20px;
     }
     nav ul li{
       display: block;
-      margin: 50px 0;
+      margin: 20px 0;
       line-height: 30px;
       
     }
     nav ul li a{
       font-size: 25px;
-      color: white;
+      color: black;
+
     }
     a:hover,a.active{
       background: none;
@@ -339,3 +342,4 @@ body {
     background-size: cover;
     height: calc(100vh - 80px);
   }
+  
