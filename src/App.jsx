@@ -7,8 +7,8 @@ import ProductsForm from './Products/productsForm';
 // import myimage from './about/linkedin.jpg';
 // import vitatshirt from './About/vita_logo.jpg'
 import Orders from './Orders/orders';
-// import Men from './Cards/men';
-// import Women from './Cards/women';
+import Men from './Cards/men';
+import Women from './Cards/women';
 
 
 
@@ -127,7 +127,7 @@ function App() {
           const cartItemsFromData = data ? Object.keys(data).map((key) => ({ id: key, ...data[key] })) : [];
 
         setCartItems(cartItemsFromData || []); // Set the cart items directly
-        console.log('cart item fetched',cartItemsFromData)
+        // console.log('cart item fetched',cartItemsFromData)
         } else {
           console.error('Failed to fetch cart items:', response.statusText);
         }
@@ -173,7 +173,7 @@ function App() {
         return response.json();
       })
       .then(data => {
-        console.log('Item added to cart successfully:', data);
+        // console.log('Item added to cart successfully:', data);
         
         // Update cartItems directly with the new item
         setCartItems(prevItems => [...prevItems, item]);
@@ -200,7 +200,7 @@ function App() {
         // Convert the Firebase data object into an array of contacts
         const contacts = result ? Object.keys(result).map((key) => ({ id: key, ...result[key] })) : [];
         setProducts(contacts);
-        // console.log(contacts);
+        // console.log("this is product item",contacts);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -253,8 +253,8 @@ function App() {
           
             <>
               <Route path='/' element={<Suspense fallback={<div>Loading...</div>}><Cards datatransfer={productsArr} addToCart={addToCart} /></Suspense>} />
-              {/* <Route path='/Men' element={<Suspense fallback={<div>Loading...</div>}><Men  addToCart={addToCart} /></Suspense>} />
-              <Route path='/Women' element={<Suspense fallback={<div>Loading...</div>}><Women  addToCart={addToCart} /></Suspense>} /> */}
+              <Route path='/Men' element={<Suspense fallback={<div>Loading...</div>}><Men  addToCart={addToCart} /></Suspense>} />
+              <Route path='/Women' element={<Suspense fallback={<div>Loading...</div>}><Women  addToCart={addToCart} /></Suspense>} />
               {/* <Route path='/Products' element={<Suspense fallback={<div>Loading...</div>}><Products productsArr={productsArr} /></Suspense>} /> */}
             </>
         

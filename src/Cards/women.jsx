@@ -3,8 +3,7 @@ import './CardsModule.css';
 import { Link } from 'react-router-dom';
 
 function Women({ addToCart }) {
-  const [menData, setMenData] = useState([]);
-
+  const [womenData, setWomenData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,15 +13,14 @@ function Women({ addToCart }) {
           throw new Error('Failed to fetch data');
         }
         const data = await response.json();
-        console.log('Fetched data:', data); // Log the data here to inspect its structure
-  
+
         // Check if data is an object and has keys
         if (typeof data === 'object' && Object.keys(data).length > 0) {
-          // Assuming each key in the object represents an item, convert it into an array
-          const dataArray = Object.keys(data).map(key => data[key]);
-          // Filter out items where sex equals 'male'
-          const maleData = dataArray.filter(item => item.Sex === 'female');
-          setMenData(maleData);
+          // Assuming each key in the object represents an item
+          const femaleData = Object.keys(data)
+            .filter(key => data[key].Sex === 'female') // Filter out items where sex equals 'female'
+            .map(key => ({ id: key, ...data[key] })); // Map each item to include the product ID
+          setWomenData(femaleData);
         } else {
           console.error('Data is not in the expected format');
         }
@@ -33,15 +31,11 @@ function Women({ addToCart }) {
   
     fetchData();
   }, []);
-  
-
-
-
 
   const addtocartbutton = (index) => {
-    const selectedItem = menData[index];
+    const selectedItem = womenData[index];
     const selectedSizes = Object.entries(selectedItem.sizes)
-      .filter(([size, available]) => available) // Filter out sizes that are true
+      .filter(([size, available]) => available)
       .reduce((acc, [size]) => {
         acc[size] = true;
         return acc;
@@ -52,9 +46,9 @@ function Women({ addToCart }) {
 
   return (
     <div className='CardDiv0'>
-      {menData.map((product, index) => (
+      {womenData.map((product, index) => (
         <div key={index} className='Carddiv'>
-          <Link className='Linkstyle' to={`/Products/${index}`} key={index}>
+          <Link className='Linkstyle' to={`/Products/${product.id}`} >
             <img src={product.Image} alt={product.title} />
           </Link>
           <h2 className='titleproduct'>{product.name}</h2>

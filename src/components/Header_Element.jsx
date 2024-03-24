@@ -36,7 +36,8 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
     return (
         <div className='headerdiv'>
             <div className='outerheader'>
-            <img className='logoimage' src={logo} alt='vita_logo'></img>
+            {/* <img className='logoimage' src={logo} alt='vita_logo'></img> */}
+            {/* <h1>VITA</h1> */}
                 <div className='imagediv'>
                     
                     <nav>
@@ -49,6 +50,12 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
         
         <li><a ><Link to='/' className='labels'>
                     Store
+                </Link></a></li>
+                <li><a ><Link to='/Men' className='labels'>
+                    Men
+                </Link></a></li>
+                <li><a ><Link to='/Women' className='labels'>
+                    Women
                 </Link></a></li>
         
         <li><a>{AuthCtx.isLoggedIn && (
@@ -115,8 +122,6 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
                 
                 
                 
-                
-                
                 {/* {isAdmin && (
                     <>
                         <Link to='/Orders' className='labels'>
@@ -127,6 +132,9 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
                         </Link>
                     </>
                 )} */}
+                </div>
+                <div className='Vitadev'>
+                <h1>VITA</h1>
                 </div>
                 {/* <div className="dropdown">
                     <button className="dropbtn" onClick={toggleSettings}>Settings</button>
@@ -156,6 +164,7 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
                 </div> */}
             
             {/* Cart button */}
+            
             <button onClick={handleCartButtonClick} className='cartbutton'>Cart</button>
             {AuthCtx.isLoggedIn && <Cart isOpen={isCartOpen} onClose={closeCart} cartItems={cartItems} setitemsincart={setitemsincart} />}
         </div>

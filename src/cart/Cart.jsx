@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = ({ isOpen, onClose, cartItems, setitemsincart }) => {
   const [selectedSize, setSelectedSize] = React.useState("");
-  console.log('this is carts cart ', cartItems);
+  // console.log('this is carts cart ', cartItems);
   const authContext = useContext(AuthContext);
 
   const handleSizeChange = (selectedSize) => {
@@ -30,14 +30,15 @@ const Cart = ({ isOpen, onClose, cartItems, setitemsincart }) => {
     <div className={`cart ${isOpen ? 'open' : ''} cartdiv`}>
       <h2>Shopping Cart</h2>
       {cartItems.length > 0 ? (
-        cartItems.map((item, index) => (
-          <Link onClick={onClose} className='Linkstyle' to={`/Products/${index}`} key={index}>
+        cartItems.map((product, index) => (
+          <Link onClick={onClose} className='Linkstyle' to={`/Products/${product.id}`} key={product.id}>
           <div key={index} className='CartItem'>
 
-            <img className='img1' src={item.Image} alt="Product Image" />
+            <img className='img1' src={product.Image} alt="Product Image" />
             <div className='datadiv'>
-            <h3>{item.name}</h3>
-            <p>Price:  ₹{item.price}</p>
+            <h3>{product.name}</h3>
+            <p>{product.id}</p>
+            <p>Price:  ₹{product.price}</p>
             </div>
           
             
