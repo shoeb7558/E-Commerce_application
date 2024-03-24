@@ -51,12 +51,12 @@ function Header_Element({ itemsincart, openCart, closeCart, isCartOpen, cartItem
         <li><a ><Link to='/' className='labels'>
                     Store
                 </Link></a></li>
-                <li><a ><Link to='/Men' className='labels'>
+                <li><a >{AuthCtx.isLoggedIn && (<Link to='/Men' className='labels'>
                     Men
-                </Link></a></li>
-                <li><a ><Link to='/Women' className='labels'>
+                </Link>)}</a></li>
+                <li><a >{AuthCtx.isLoggedIn && (<Link to='/Women' className='labels'>
                     Women
-                </Link></a></li>
+                </Link>)}</a></li>
         
         <li><a>{AuthCtx.isLoggedIn && (
                     <>
